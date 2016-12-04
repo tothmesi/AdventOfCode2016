@@ -24,7 +24,7 @@ namespace Day01
             List<int> movementX = new List<int>();
             List<int> movementY = new List<int>();
 
-            using (StreamReader stream = new StreamReader(@"e:\08_programozas\advent_of_code_2016\AdventOfCode2016\Day01\Day01-input.txt"))
+            using (StreamReader stream = new StreamReader(@"..\..\Day01-input.txt"))
             {
                 string[] route = stream.ReadToEnd().Split(',');
                 int step = Convert.ToInt32(route[0].Substring(1));
