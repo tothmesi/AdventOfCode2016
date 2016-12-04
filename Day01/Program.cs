@@ -23,42 +23,43 @@ namespace Day01
 
             List<int> movementX = new List<int>();
             List<int> movementY = new List<int>();
+            string[] route;
 
             using (StreamReader stream = new StreamReader(@"..\..\Day01-input.txt"))
             {
-                string[] route = stream.ReadToEnd().Split(',');
-                int step = Convert.ToInt32(route[0].Substring(1));
-                movementX.Add((route[0][0] == 'R') ? step : -step);
+                route = stream.ReadToEnd().Split(',');
+            }
 
-                for (int i = 0; i < route.Length; i++)
+            int step = Convert.ToInt32(route[0].Substring(1));
+            movementX.Add((route[0][0] == 'R') ? step : -step);
+
+            for (int i = 0; i < route.Length; i++)
+            {
+                route[i] = route[i].Trim();
+                step = Convert.ToInt32(route[i].Substring(1));
+
+                if (i % 2 == 1)
                 {
-                    route[i] = route[i].Trim();
-                    step = Convert.ToInt32(route[i].Substring(1));
-
-                    if (i % 2 == 1)
+                    if (movementX.Last() >= 0)
                     {
-                        if (movementX.Last() >= 0)
-                        {
-                            movementY.Add((route[i][0] == 'R') ? -step : step);
-                        }
-                        else {
-                            movementY.Add((route[i][0] == 'R') ? step : -step);
-                        }
+                        movementY.Add((route[i][0] == 'R') ? -step : step);
                     }
+                    else {
+                        movementY.Add((route[i][0] == 'R') ? step : -step);
+                    }
+                }
 
-                    if (i % 2 == 0 && i != 0)
+                if (i % 2 == 0 && i != 0)
+                {
+                    if (movementY.Last() >= 0)
                     {
-                        if (movementY.Last() >= 0)
-                        {
-                            movementX.Add((route[i][0] == 'R') ? step : -step);
-                        }
-                        else {
-                            movementX.Add((route[i][0] == 'R') ? -step : step);
-                        }
+                        movementX.Add((route[i][0] == 'R') ? step : -step);
+                    }
+                    else {
+                        movementX.Add((route[i][0] == 'R') ? -step : step);
                     }
                 }
             }
-
             x = movementX.Sum();
             y = movementY.Sum();
 
@@ -66,7 +67,5 @@ namespace Day01
             Console.WriteLine(Math.Abs(x) + Math.Abs(y));
             Console.ReadKey();
         }
-
-
     }
 }
