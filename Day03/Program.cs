@@ -27,6 +27,7 @@ namespace Day03
                 designDocument[i]= designDocument[i].Trim();
                 string regex = @"(\s)+";
                 designDocument[i] = Regex.Replace(designDocument[i], regex, ",", RegexOptions.None);
+
                 string[] actual = designDocument[i].Split(',');
                 int[] sides = new int[3];
                 for (int j = 0; j < actual.Length; j++)
@@ -34,28 +35,12 @@ namespace Day03
                     sides[j] = Convert.ToInt32(actual[j]);
                 }
 
-                if (IsTriangle(sides))
-                    triangleCounter++;
+                if (!(sides[0] + sides[1] <= sides[2] || sides[0] + sides[2] <= sides[1] || sides[1] + sides[2] <= sides[0]))
+                  triangleCounter++;
             }
 
             Console.WriteLine("Lehetséges háromszögek száma: {0}",triangleCounter);
             Console.ReadKey();
-        }
-
-        public static bool IsTriangle(int[] sides)
-        {
-            bool isTriangle = true;
-
-            if (sides[0] + sides[1] <= sides[2])
-                isTriangle = false;
-
-            if (sides[0] + sides[2] <= sides[1])
-                isTriangle = false;
-
-            if (sides[1] + sides[2] <= sides[0])
-                isTriangle = false;
-
-            return isTriangle;
         }
     }
 }
