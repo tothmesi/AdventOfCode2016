@@ -90,16 +90,10 @@ namespace Day04
                         }
                     }
                     name += alphabet[(index + id) % alphabet.Length];
-                    //id%alphabet.length az eltolás
-                    //hányadikra pörgetődik ki
-
-
-                    
                 }
                 if (name.Contains("north"))
                     Console.WriteLine("A North Pole szoba id-ja: {0}", id);
             }
-
             Console.WriteLine("A valódi szobák id összege: {0}", checkSum);
             Console.ReadKey();
         }
