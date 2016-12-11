@@ -60,7 +60,6 @@ namespace Day07
                 if (IsABBA(y))
                     isABBAOutside = true;
             }
-
             return (isABBAOutside && !isABBAInside);
         }
 
@@ -79,11 +78,6 @@ namespace Day07
                 }
             }
 
-            //if (aba.Count > 1)
-            //{
-            //    Console.WriteLine("\n\rLine: {0}\n\rABA: {1}",input, string.Join(",", aba));
-            //}
-
             foreach (string z in aba)
             {
                 string bab = z[1].ToString() + z[0].ToString() + z[1].ToString();
@@ -92,8 +86,6 @@ namespace Day07
                     if (y.Contains(bab))
                         return true;
             }
-            //Console.WriteLine("\n\rLine: {0}\n\rABA: {1}",input, string.Join(",",aba));
-           
             return false;
         }
 
