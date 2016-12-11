@@ -1,5 +1,6 @@
 bin
 obj
 debug
+TestResults
 *.suo
 *.user
