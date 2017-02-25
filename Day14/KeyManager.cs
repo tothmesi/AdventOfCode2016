@@ -13,20 +13,6 @@ namespace Day14
         private Regex threeOfAKind = new Regex(@"(.)\1\1", RegexOptions.Compiled);
         private SortedDictionary<int, string> hashes = new SortedDictionary<int, string>();
 
-
-        #region Tibi
-        private string CalculateHashTibi(string input)
-
-        {
-            // step 1, calculate MD5 hash from input
-            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
-            byte[] hash = md5.ComputeHash(inputBytes);
-
-            return hash.ToHex();
-        }
-
-        #endregion
-
         private string CalculateHash(string input)
 
         {
