@@ -113,11 +113,8 @@ namespace Day14
                         Console.WriteLine("{0}. index: {1}", keyIndexes.Count, index);
                         return;
                     }
-
                 }
-
             }
         }
-
     }
 }

@@ -27,12 +27,10 @@ namespace Day05
 
                     Console.WriteLine("OK, {0}, {1}, {2}", hash, hashInput, string.Join(",", password));
                 }
-
             }
 
             Console.WriteLine(password);
             Console.ReadKey();
-
         }
 
         public static string CalculateMD5Hash(string input)

@@ -15,9 +15,11 @@ namespace Day10
             Id = id;
         }
 
+        // kinek kell adnia a nála lévő kisebb és nagyobb chipet - gráf szomszédos node-jai
         public Node lowTo;
         public Node highTo;
 
+        // nála lévő chipek listája
         public List<int> chips = new List<int>();
 
         public abstract void AddNewChip(int chip);

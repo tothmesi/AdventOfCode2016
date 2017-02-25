@@ -14,6 +14,7 @@ namespace Day13
             Y = y;
         }
 
+        // falat vagy utat rajzol a feladatban megadott algoritmus alapján
         public char DrawCoordinates(int favourite)
         {
             int sum = X * X + 3 * X + 2 * X * Y + Y + Y * Y + favourite;

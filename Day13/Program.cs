@@ -7,12 +7,12 @@ namespace Day13
     {
         static void Main(string[] args)
         {
-            // PART 01 - Shortest path to (31,39)
-            int favourite = 1364;
+            // PART 01 - Legrövidebb út a (31,39)-be
+            int favourite = 1364; // input
             List<Node> path = AStar(new Tuple<int, int>(1, 1), new Tuple<int, int>(31, 39), favourite);
             Console.WriteLine("A (31,39) pont {0} lépésből érhető el.",path.Count - 1);
 
-            // PART 02 - Nodes within 50 steps
+            // PART 02 - Elérhető node-ok 50 lépésen belül
             List<Node> nodesWithin50 = new List<Node>();
             for (int i = 0; i < 51; i++)
             {
@@ -32,7 +32,7 @@ namespace Day13
 
             Console.WriteLine("50 lépésből {0} csomópont érhető el.",nodesWithin50.Count);
             Console.WriteLine("A legrövidebb út az alábbi:\n\r");
-            //Mátrix kirajzolása
+            //Útvonal kirajzolása a konzolra
             for (int i = 0; i < 35; i++)
             {
                 string matrixLine = "";
@@ -50,6 +50,7 @@ namespace Day13
 
         }
 
+        // útkeresésre A* algoritmust implementáltam
         public static List<Node> AStar(Tuple<int, int> start, Tuple<int, int> goal, int favourite)
         {
             Queue<Node> openSet = new Queue<Node>();
@@ -112,6 +113,7 @@ namespace Day13
             return null;
         }
 
+        // Legkisebb költségű utat visszakeresi visszalépkedéssel
         private static List<Node> ReconstructPath(Dictionary<Node, Node> cameFrom, Node goal)
         {
             List<Node> path = new List<Node>();
@@ -125,6 +127,7 @@ namespace Day13
             return path;
         }
 
+        // heurisztikát számol minden egyes pontra, ezt az A* használja
         public static int CalculateHeuristic(Tuple<int, int> current, Tuple<int, int> goal)
         {
             return Math.Abs(goal.Item1 - current.Item1) + Math.Abs(goal.Item2 - current.Item2);

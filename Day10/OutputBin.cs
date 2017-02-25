@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day10
 {
+    // néhány bot ide teszi le a chipjeit, innen nem lehet kivenni
     class OutputBin : Node
     {
         public OutputBin(string id) : base(id)
